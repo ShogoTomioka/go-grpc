@@ -1,5 +1,6 @@
 
 syntax = "proto3";
+#ターゲットのねこを指定すると、名前と種類を返す
 service Cat {
   rpc GetMyCat (GetMyCatMessage) returns (MyCatResponse) {}
 }

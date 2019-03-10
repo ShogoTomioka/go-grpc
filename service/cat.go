@@ -16,13 +16,13 @@ func (s *MyCatService) GetMyCat(ctx context.Context, message *pb.GetMyCatMessage
 		//たまはメインクーン
 		return &pb.MyCatResponse{
 			Name: "tama",
-			Kind: "mainecoon",
+			Kind: "雑種",
 		}, nil
 	case "mike":
 		//ミケはノルウェージャンフォレストキャット
 		return &pb.MyCatResponse{
 			Name: "mike",
-			Kind: "Norwegian Forest Cat",
+			Kind: "血統種",
 		}, nil
 	}
 	return nil, errors.New("Not Found YourCat")
