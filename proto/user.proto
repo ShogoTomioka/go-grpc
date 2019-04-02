@@ -1,0 +1,30 @@
+
+syntax = "proto3";
+
+// ユーザやユーザに関係するスキーマの定義
+message Tweet {
+  string body = 1;
+  int64  author = 2;
+  int64  good = 3;
+  int64  retweeted = 4;
+  bool   mentioned = 5;
+  bool   mention = 6;
+}
+
+message User {
+  string id=1;
+  string first_name =2;
+  string last_name = 3;
+  string prof_name = 4;
+  string profile = 5;
+  string email = 6;
+  int64 created_at = 7;
+  int64 deleted_at = 8;
+  bool private = 9;
+}
+
+
+
+
+
+
