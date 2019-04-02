@@ -1,0 +1,56 @@
+
+syntax = "proto3";
+
+package user;
+
+// grpcのサービスとサービスのやりとりに使用するリクエスト、レスポンスの定義
+import "proto/user.proto";
+
+enum RequestStatus {
+    UserNotExisted = 0;          //ユーザが見つからない
+    PermissionDenied = 1;        //プライベートアカウントでフレンドでは無い　
+    BadRequest = 2;              //リクエストに不備
+    Success = 3;
+}
+
+message GetUserByIDRequest {
+    string id =1;
+    string requse_user_id = 2;
+}
+
+message GetUserByIDResponse {
+    RequestStatus status = 1;
+    User user = 2;
+}
+
+message CreateUserRequest {
+    User user = 1;
+}
+
+message CreateUserResponse {
+    RequestStatus status = 1;
+}
+
+message UpdateUserRequest {
+    User user = 1;
+}
+
+message UpdateUserResponse {
+    RequestStatus status = 1;
+}
+
+message DeleteUserRequest {
+    string id = 1;
+}
+
+message DeleteUserResponse {
+    RequestStatus status = 1;
+}
+
+service Cat {
+    rpc GetUserByID (GetUserByIDRequest) returns (GetUserByIDResponse) {}
+    rpc CreateUser (CreateUserRequest) returns (CreateUserResponse) {}
+    rpc UpdateUser (UpdateUserRequest) returns (UpdateUserResponse) {}
+    rpc DeleteUser (DeleteUserRequest) returns (DeleteUserResponse) {}
+
+}
